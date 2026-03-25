@@ -97,6 +97,7 @@ const related = slangData
   btn.addEventListener('click', async () => {
     const term = btn.dataset.term || '';
     await navigator.clipboard.writeText(term);
+    gtag('event', 'slang_copy', { slang_term: term });
     btn.textContent = '✅ Copied!';
     setTimeout(() => {
       btn.textContent = `📋 Copy "${term}" to clipboard`;

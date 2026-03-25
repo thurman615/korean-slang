@@ -94,7 +94,15 @@ const popularFirst = [...slangData].sort((a, b) => b.popularity - a.popularity);
     noResults.style.display = visible === 0 ? '' : 'none';
   }
 
-  searchInput.addEventListener('input', applyFilters);
+  let searchDebounce: ReturnType<typeof setTimeout>;
+  searchInput.addEventListener('input', () => {
+    applyFilters();
+    clearTimeout(searchDebounce);
+    searchDebounce = setTimeout(() => {
+      const q = searchInput.value.trim();
+      if (q) gtag('event', 'search', { search_term: q });
+    }, 600);
+  });
 
   filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -103,6 +111,13 @@ const popularFirst = [...slangData].sort((a, b) => b.popularity - a.popularity);
       activeFilter = (btn as HTMLElement).dataset.filter || 'all';
       applyFilters();
     });
+  });
+
+  grid.addEventListener('click', (e) => {
+    const card = (e.target as Element).closest('.card') as HTMLElement | null;
+    if (!card) return;
+    const term = card.querySelector('.card-term')?.textContent?.trim() || '';
+    if (term) gtag('event', 'slang_view', { slang_term: term });
   });
 </script>
 
