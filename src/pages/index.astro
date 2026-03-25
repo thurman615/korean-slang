@@ -4,12 +4,25 @@ import SlangCard from '../components/SlangCard.astro';
 import { slangData, categories } from '../data/slang';
 
 const popularFirst = [...slangData].sort((a, b) => b.popularity - a.popularity);
+const AD_INSERT_AFTER = 12;
 ---
 
 <Layout
   title="Korean Slang Guide — Decode Real Korean Texting"
   description="Learn what ㅋㅋ, ㅠㅠ, ㄹㅇ and other Korean slang actually mean. A simple guide for K-pop fans, learners, and expats."
 >
+  <script type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Korean Slang Guide",
+    "url": "https://korean-slang.pages.dev",
+    "description": "Learn Korean internet slang, abbreviations, and neologisms used on social media",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://korean-slang.pages.dev/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  })}</script>
   <section class="hero">
     <div class="hero-inner">
       <p class="hero-tag">🇰🇷 The Korean Texting Dictionary</p>
@@ -46,14 +59,21 @@ const popularFirst = [...slangData].sort((a, b) => b.popularity - a.popularity);
 
       <!-- Slang grid -->
       <div class="grid" id="slang-grid">
-        {popularFirst.map((item) => (
-          <SlangCard
-            term={item.term}
-            meaning={item.meaning}
-            pronunciation={item.pronunciation}
-            slug={item.slug}
-            category={item.category}
-          />
+        {popularFirst.map((item, i) => (
+          <>
+            {i === AD_INSERT_AFTER && (
+              <div class="card ad-card" aria-hidden="true">
+                <span class="ad-label">Sponsored</span>
+              </div>
+            )}
+            <SlangCard
+              term={item.term}
+              meaning={item.meaning}
+              pronunciation={item.pronunciation}
+              slug={item.slug}
+              category={item.category}
+            />
+          </>
         ))}
       </div>
 
@@ -264,6 +284,25 @@ const popularFirst = [...slangData].sort((a, b) => b.popularity - a.popularity);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 0.75rem;
+  }
+
+  /* Ad card */
+  .ad-card {
+    border: 1.5px dashed var(--color-border);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    background: var(--color-surface);
+  }
+  .ad-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    opacity: 0.5;
   }
 
   /* No results */

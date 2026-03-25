@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SlangCard from '../../components/SlangCard.astro';
+import AdSlot from '../../components/AdSlot.astro';
 import { slangData, categories } from '../../data/slang';
 
 // Astro가 빌드 시 모든 슬랭 페이지를 자동 생성
@@ -22,9 +23,20 @@ const related = slangData
 
 <Layout
   title={`${item.term} meaning — ${item.meaning} | Korean Slang Guide`}
-  description={`${item.term} (${item.pronunciation}) means "${item.meaning}" in Korean texting. ${item.description}`}
+  description={`What does "${item.term}" mean in Korean? ${item.description.slice(0, 100)} Learn Korean internet slang and informal expressions.`}
   slug={item.slug}
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    "name": item.term,
+    "description": item.description,
+    "inDefinedTermSet": {
+      "@type": "DefinedTermSet",
+      "name": "Korean Slang Dictionary",
+      "url": "https://korean-slang.pages.dev"
+    }
+  })} />
   <article class="detail">
     <div class="detail-inner">
       <!-- Breadcrumb (SEO용) -->
@@ -67,6 +79,8 @@ const related = slangData
           <span class="tag">#{tag}</span>
         ))}
       </div>
+
+      <AdSlot slot="detail-bottom" />
 
       <!-- Related -->
       {related.length > 0 && (
