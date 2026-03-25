@@ -1,0 +1,213 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SlangCard from '../components/SlangCard.astro';
+import { slangData, categories } from '../data/slang';
+
+const popularFirst = [...slangData].sort((a, b) => b.popularity - a.popularity);
+---
+
+<Layout
+  title="Korean Slang Guide — Decode Real Korean Texting"
+  description="Learn what ㅋㅋ, ㅠㅠ, ㄹㅇ and other Korean slang actually mean. A simple guide for K-pop fans, learners, and expats."
+>
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-tag">🇰🇷 The Korean Texting Dictionary</p>
+      <h1 class="hero-title">
+        What does <span class="hero-highlight">ㅋㅋ</span> mean?
+      </h1>
+      <p class="hero-sub">
+        Decode Korean texts, DMs, and comments.<br />
+        Built for learners, K-pop fans & expats.
+      </p>
+      <div class="search-wrap">
+        <input
+          type="text"
+          id="search"
+          class="search-input"
+          placeholder="Search: ㅋㅋ, ㅠㅠ, daebak, lol..."
+          autocomplete="off"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="content" id="categories">
+    <div class="content-inner">
+      <!-- Category filter -->
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        {categories.map((cat) => (
+          <button class="filter-btn" data-filter={cat.id}>
+            {cat.icon} {cat.name}
+          </button>
+        ))}
+      </div>
+
+      <!-- Slang grid -->
+      <div class="grid" id="slang-grid">
+        {popularFirst.map((item) => (
+          <SlangCard
+            term={item.term}
+            meaning={item.meaning}
+            pronunciation={item.pronunciation}
+            slug={item.slug}
+            category={item.category}
+          />
+        ))}
+      </div>
+
+      <p class="no-results" id="no-results" style="display: none;">
+        No results found. <a href="https://forms.gle/YOUR_FORM_ID" target="_blank">Submit this word →</a>
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<!-- Client-side search & filter (vanilla JS, 가벼움) -->
+<script>
+  const searchInput = document.getElementById('search') as HTMLInputElement;
+  const grid = document.getElementById('slang-grid')!;
+  const cards = Array.from(grid.querySelectorAll('.card')) as HTMLElement[];
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const noResults = document.getElementById('no-results')!;
+
+  let activeFilter = 'all';
+
+  function applyFilters() {
+    const query = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    cards.forEach((card) => {
+      const term = card.querySelector('.card-term')?.textContent?.toLowerCase() || '';
+      const meaning = card.querySelector('.card-meaning')?.textContent?.toLowerCase() || '';
+      const category = card.dataset.category || '';
+
+      const matchesSearch = !query || term.includes(query) || meaning.includes(query);
+      const matchesFilter = activeFilter === 'all' || category === activeFilter;
+
+      const show = matchesSearch && matchesFilter;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    noResults.style.display = visible === 0 ? '' : 'none';
+  }
+
+  searchInput.addEventListener('input', applyFilters);
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = (btn as HTMLElement).dataset.filter || 'all';
+      applyFilters();
+    });
+  });
+</script>
+
+<style>
+  /* Hero */
+  .hero {
+    padding: 4rem 1.5rem 2.5rem;
+    text-align: center;
+  }
+  .hero-inner { max-width: var(--max-w); margin: 0 auto; }
+  .hero-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+  }
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+  .hero-highlight {
+    font-family: var(--font-korean);
+    color: var(--color-accent);
+  }
+  .hero-sub {
+    margin-top: 0.75rem;
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  /* Search */
+  .search-wrap {
+    max-width: 480px;
+    margin: 1.75rem auto 0;
+  }
+  .search-input {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    font-size: 1rem;
+    font-family: var(--font-display);
+    border: 2px solid var(--color-border);
+    border-radius: 999px;
+    outline: none;
+    background: var(--color-surface);
+    transition: border-color 0.2s;
+  }
+  .search-input:focus { border-color: var(--color-accent); }
+  .search-input::placeholder { color: #B0B0B0; }
+
+  /* Content */
+  .content { padding: 0 1.5rem 3rem; }
+  .content-inner { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Filters */
+  .filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .filter-btn {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.4rem 0.875rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-surface);
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: all 0.15s;
+  }
+  .filter-btn:hover { border-color: var(--color-text); color: var(--color-text); }
+  .filter-btn.active {
+    background: var(--color-text);
+    color: white;
+    border-color: var(--color-text);
+  }
+
+  /* Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.75rem;
+  }
+
+  /* No results */
+  .no-results {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+  .no-results a {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 2.5rem 1.25rem 1.5rem; }
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
