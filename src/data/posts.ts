@@ -20,9 +20,9 @@ export const posts: Post[] = [
       "New to Korean internet slang? This beginner's guide explains how Korean abbreviations work, covers the 15 most essential slang words, and shows you how to practice naturally.",
     publishedAt: "2026-03-01",
     category: "Beginners",
-    heroImage: "kyNkN95uYtQ",
+    heroImage: "seoul-city-night",
     heroImageAlt: "Nighttime street scene in Seoul with neon signs and Korean text — where Korean internet slang was born",
-    ogImage: "kyNkN95uYtQ",
+    ogImage: "seoul-city-night",
     relatedSlugs: ["kk", "hh", "oo", "real", "ok", "daebak", "heol", "fighting"],
     content: `
 <p>If you've ever tried to read a Korean text message, a fan comment under a K-pop video, or a Twitch chat from a Korean streamer, you've probably run into strings of consonants like <strong>ㅋㅋㅋ</strong>, <strong>ㄹㅇ</strong>, or <strong>ㅠㅠ</strong> — and had absolutely no idea what they mean. Don't worry. You're not alone, and this guide is here to fix that.</p>
@@ -31,7 +31,7 @@ export const posts: Post[] = [
 
 <figure class="post-figure">
   <img
-    src="https://images.unsplash.com/photo-NfuWOBJ_D-w?w=800&q=80"
+    src="https://picsum.photos/seed/korea-beginners-1/800/400"
     alt="Neon lights illuminating a bustling street in Korea, representing the vibrant culture behind Korean internet slang"
     width="800"
     height="480"
@@ -83,7 +83,7 @@ export const posts: Post[] = [
 
 <figure class="post-figure">
   <img
-    src="https://images.unsplash.com/photo-4lKFi3KqnD8?w=800&q=80"
+    src="https://picsum.photos/seed/korea-beginners-2/800/400"
     alt="Person using smartphone to view social media — Korean texting abbreviations make mobile communication faster"
     width="800"
     height="480"
@@ -158,9 +158,9 @@ export const posts: Post[] = [
       "Confused by Korean fan comments, fandom Twitter, and idol livestreams? This guide explains all the essential K-pop slang — from 최애 and 입덕 to 갓벽 and 띵곡.",
     publishedAt: "2026-03-10",
     category: "K-pop",
-    heroImage: "k9BTg4ViqwM",
+    heroImage: "kpop-concert-fan",
     heroImageAlt: "K-pop fans raising their hands and cheering at a live music concert with bright stage lights",
-    ogImage: "k9BTg4ViqwM",
+    ogImage: "kpop-concert-fan",
     relatedSlugs: ["gatbyeok", "jonjal", "jonye", "ttinggok", "daebak", "fighting"],
     content: `
 <p>Being a K-pop fan means navigating two layers of Korean: the language itself, and the dense, fast-evolving dialect that fandoms have built on top of it. Whether you're reading fan café posts, watching a livestream on VLive, or trying to decode a Korean stan's tweet, there's a whole vocabulary you need to know — one that textbooks will never teach you.</p>
@@ -175,7 +175,7 @@ export const posts: Post[] = [
 
 <figure class="post-figure">
   <img
-    src="https://images.unsplash.com/photo-Qnlp3FCO2vc?w=800&q=80"
+    src="https://picsum.photos/seed/korea-kpop-1/800/400"
     alt="People raising their hands at a concert, capturing the excitement and energy of K-pop fan culture"
     width="800"
     height="480"
@@ -228,7 +228,7 @@ export const posts: Post[] = [
 
 <figure class="post-figure">
   <img
-    src="https://images.unsplash.com/photo-CuSHBGBdXc0?w=800&q=80"
+    src="https://picsum.photos/seed/korea-kpop-2/800/400"
     alt="Crowd cheering a band during night time at a concert — the atmosphere K-pop fans recreate in their online language"
     width="800"
     height="480"
@@ -292,9 +292,9 @@ export const posts: Post[] = [
       "A complete guide to Korean consonant-only abbreviations (초성 줄임말). Understand how ㅋㅋ, ㄹㅇ, ㅇㅇ, ㅠㅠ and 20+ more Korean abbreviations work and when to use them.",
     publishedAt: "2026-03-18",
     category: "Social Media",
-    heroImage: "2MBnS4np8i0",
+    heroImage: "smartphone-social-media",
     heroImageAlt: "Close up of a smartphone screen showing social media app icons — the home of Korean abbreviations",
-    ogImage: "2MBnS4np8i0",
+    ogImage: "smartphone-social-media",
     relatedSlugs: ["kk", "hh", "oo", "real", "ok", "gs", "dd", "nn"],
     content: `
 <p>If you've ever received a Korean text that looked like a string of consonants with no vowels — something like <strong>ㅋㅋ ㄹㅇ ㅇㅇ</strong> — you weren't reading corrupted text. You were reading a fully formed message in Korean abbreviation style, and once you understand the system, it all makes perfect sense.</p>
@@ -311,7 +311,7 @@ export const posts: Post[] = [
 
 <figure class="post-figure">
   <img
-    src="https://images.unsplash.com/photo-LXQCeOHMxbs?w=800&q=80"
+    src="https://picsum.photos/seed/korea-abbrev-1/800/400"
     alt="Person texting on a smartphone, demonstrating how Koreans use abbreviations for fast mobile communication"
     width="800"
     height="480"
@@ -365,7 +365,7 @@ export const posts: Post[] = [
 
 <figure class="post-figure">
   <img
-    src="https://images.unsplash.com/photo-MHBMClU3qCg?w=800&q=80"
+    src="https://picsum.photos/seed/korea-abbrev-2/800/400"
     alt="Korean street scene at night with cherry blossoms and motorcycles — the urban setting where Korean digital culture thrives"
     width="800"
     height="480"
