@@ -38,7 +38,7 @@ const articleSchema = {
       "url": "https://korean-slang.pages.dev/favicon.svg"
     }
   },
-  "image": `https://images.unsplash.com/photo-${post.ogImage}?w=1200&q=80`,
+  "image": post.ogImage,
   "url": `https://korean-slang.pages.dev/blog/${post.slug}`
 };
 
@@ -60,7 +60,7 @@ const faqSchema = {
   title={`${post.title} | KoreanSlang.guide`}
   description={post.description}
   canonicalPath={`/blog/${post.slug}`}
-  ogImage={`https://images.unsplash.com/photo-${post.ogImage}?w=1200&q=80`}
+  ogImage={post.ogImage}
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -69,7 +69,7 @@ const faqSchema = {
     <!-- Hero Image -->
     <div class="post-hero">
       <img
-        src={`https://images.unsplash.com/photo-${post.heroImage}?w=1200&q=80`}
+        src={post.heroImage}
         alt={post.heroImageAlt}
         width="1200"
         height="400"

@@ -25,7 +25,7 @@ const sorted = [...posts].sort((a, b) => b.publishedAt.localeCompare(a.published
           <a href={`/blog/${post.slug}`} class="post-card">
             <div class="post-thumb">
               <img
-                src={`https://images.unsplash.com/photo-${post.heroImage}?w=600&q=75`}
+                src={post.heroImage}
                 alt={post.heroImageAlt}
                 width="600"
                 height="340"
