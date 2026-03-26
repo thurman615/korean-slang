@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#12083A"/>
+      <stop offset="100%" style="stop-color:#2A1260"/>
+    </linearGradient>
+    <linearGradient id="fade1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:transparent"/>
+      <stop offset="100%" style="stop-color:rgba(0,0,0,0.6)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg1)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="-20" cy="-20" r="160" fill="#E8453C" opacity="0.12"/>
+  <circle cx="780" cy="430" r="180" fill="#E8453C" opacity="0.08"/>
+  <circle cx="720" cy="60" r="90" fill="#E8453C" opacity="0.07"/>
+
+  <!-- Big Korean text watermark -->
+  <text x="540" y="280" font-family="system-ui, -apple-system, sans-serif" font-size="130" font-weight="900"
+        fill="#E8453C" opacity="0.18" text-anchor="middle">한글</text>
+
+  <!-- Dark bottom fade -->
+  <rect width="800" height="450" fill="url(#fade1)"/>
+
+  <!-- Tag pill -->
+  <rect x="36" y="34" width="148" height="30" rx="15" fill="#E8453C"/>
+  <text x="110" y="54" font-family="system-ui, sans-serif" font-size="12" font-weight="700"
+        fill="white" text-anchor="middle" letter-spacing="1">BEGINNERS GUIDE</text>
+
+  <!-- Title -->
+  <text x="40" y="335" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="800"
+        fill="white">Korean Slang 101</text>
+  <text x="40" y="375" font-family="system-ui, -apple-system, sans-serif" font-size="18"
+        fill="#D0C8E8">The Complete Beginner's Guide (2025)</text>
+
+  <!-- Accent line -->
+  <rect x="40" y="400" width="70" height="5" rx="2" fill="#E8453C"/>
+
+  <!-- Brand -->
+  <text x="40" y="432" font-family="system-ui, sans-serif" font-size="13"
+        fill="#8880A8">KoreanSlang.guide</text>
+
+  <!-- Slang decoration -->
+  <text x="560" y="170" font-family="system-ui, sans-serif" font-size="28" font-weight="700"
+        fill="white" opacity="0.35">ㅋㅋㅋ</text>
+  <text x="600" y="210" font-family="system-ui, sans-serif" font-size="22" font-weight="700"
+        fill="#E8453C" opacity="0.5">ㄹㅇ</text>
+  <text x="570" y="245" font-family="system-ui, sans-serif" font-size="20"
+        fill="white" opacity="0.3">ㅠㅠ</text>
+</svg>
