@@ -1,0 +1,169 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { posts } from '../../data/posts';
+
+const sorted = [...posts].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+---
+
+<Layout
+  title="Korean Slang Blog — Tips, Guides & Lessons"
+  description="Learn Korean internet slang through in-depth guides. Topics include abbreviations, K-pop fandom terms, beginner lessons, and how Koreans really text."
+  canonicalPath="/blog"
+>
+  <section class="blog-hero">
+    <div class="blog-hero-inner">
+      <p class="blog-tag">📖 Guides & Lessons</p>
+      <h1 class="blog-title">Korean Slang Blog</h1>
+      <p class="blog-sub">Deep dives into abbreviations, K-pop terms, and how real Korean texting works.</p>
+    </div>
+  </section>
+
+  <section class="blog-content">
+    <div class="blog-inner">
+      <div class="post-grid">
+        {sorted.map((post) => (
+          <a href={`/blog/${post.slug}`} class="post-card">
+            <div class="post-thumb">
+              <img
+                src={`https://images.unsplash.com/photo-${post.heroImage}?w=600&q=75`}
+                alt={post.heroImageAlt}
+                width="600"
+                height="340"
+                loading="lazy"
+              />
+              <span class="post-category">{post.category}</span>
+            </div>
+            <div class="post-body">
+              <p class="post-date">{new Date(post.publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+              <h2 class="post-title">{post.title}</h2>
+              <p class="post-desc">{post.description}</p>
+              <span class="post-cta">Read guide →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .blog-hero {
+    padding: 4rem 1.5rem 2.5rem;
+    text-align: center;
+  }
+  .blog-hero-inner { max-width: var(--max-w); margin: 0 auto; }
+  .blog-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+  }
+  .blog-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+  .blog-sub {
+    margin-top: 0.75rem;
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .blog-content { padding: 0 1.5rem 4rem; }
+  .blog-inner { max-width: var(--max-w); margin: 0 auto; }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.2s ease;
+  }
+  .post-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(232, 69, 60, 0.08);
+  }
+
+  .post-thumb {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+  }
+  .post-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .post-card:hover .post-thumb img { transform: scale(1.03); }
+
+  .post-category {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: var(--color-accent);
+    color: white;
+    padding: 0.25rem 0.625rem;
+    border-radius: 999px;
+  }
+
+  .post-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+  }
+  .post-date {
+    font-size: 0.73rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .post-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    color: var(--color-text);
+  }
+  .post-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-top: 0.1rem;
+    flex: 1;
+  }
+  .post-cta {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .blog-hero { padding: 2.5rem 1.25rem 1.5rem; }
+    .post-grid { grid-template-columns: 1fr; }
+  }
+</style>
