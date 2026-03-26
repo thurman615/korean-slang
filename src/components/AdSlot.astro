@@ -1,5 +1,5 @@
 ---
-const ADSENSE_PUBLISHER_ID = 'PENDING';
+const ADSENSE_PUBLISHER_ID = 'ca-pub-2991825493981285';
 
 interface Props {
   slot: string;
@@ -9,22 +9,11 @@ interface Props {
 const { slot, style } = Astro.props;
 ---
 
-<!-- AdSlot: {slot} | publisher: {ADSENSE_PUBLISHER_ID} -->
-<!-- Uncomment below after AdSense approval and replace ca-pub-PENDING -->
-<!--
 <ins class="adsbygoogle"
   style={style || 'display:block'}
-  data-ad-client={`ca-pub-${ADSENSE_PUBLISHER_ID}`}
+  data-ad-client={ADSENSE_PUBLISHER_ID}
   data-ad-slot={slot}
   data-ad-format="auto"
   data-full-width-responsive="true"
 ></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
--->
-<div class="ad-slot-placeholder" data-slot={slot} style={style}></div>
-
-<style>
-  .ad-slot-placeholder {
-    display: none;
-  }
-</style>
