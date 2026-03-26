@@ -20,9 +20,9 @@ export const posts: Post[] = [
       "New to Korean internet slang? This beginner's guide explains how Korean abbreviations work, covers the 15 most essential slang words, and shows you how to practice naturally.",
     publishedAt: "2026-03-01",
     category: "Beginners",
-    heroImage: "seoul-city-night",
-    heroImageAlt: "Nighttime street scene in Seoul with neon signs and Korean text — where Korean internet slang was born",
-    ogImage: "seoul-city-night",
+    heroImage: "/images/blog/beginners.jpg",
+    heroImageAlt: "Korean Slang 101 — Beginner's Guide to Korean internet slang",
+    ogImage: "/images/blog/beginners.jpg",
     relatedSlugs: ["kk", "hh", "oo", "real", "ok", "daebak", "heol", "fighting"],
     content: `
 <p>If you've ever tried to read a Korean text message, a fan comment under a K-pop video, or a Twitch chat from a Korean streamer, you've probably run into strings of consonants like <strong>ㅋㅋㅋ</strong>, <strong>ㄹㅇ</strong>, or <strong>ㅠㅠ</strong> — and had absolutely no idea what they mean. Don't worry. You're not alone, and this guide is here to fix that.</p>
@@ -158,9 +158,9 @@ export const posts: Post[] = [
       "Confused by Korean fan comments, fandom Twitter, and idol livestreams? This guide explains all the essential K-pop slang — from 최애 and 입덕 to 갓벽 and 띵곡.",
     publishedAt: "2026-03-10",
     category: "K-pop",
-    heroImage: "kpop-concert-fan",
-    heroImageAlt: "K-pop fans raising their hands and cheering at a live music concert with bright stage lights",
-    ogImage: "kpop-concert-fan",
+    heroImage: "/images/blog/kpop.jpg",
+    heroImageAlt: "Ultimate K-pop Fan Slang Guide — Fandom Terms Explained",
+    ogImage: "/images/blog/kpop.jpg",
     relatedSlugs: ["gatbyeok", "jonjal", "jonye", "ttinggok", "daebak", "fighting"],
     content: `
 <p>Being a K-pop fan means navigating two layers of Korean: the language itself, and the dense, fast-evolving dialect that fandoms have built on top of it. Whether you're reading fan café posts, watching a livestream on VLive, or trying to decode a Korean stan's tweet, there's a whole vocabulary you need to know — one that textbooks will never teach you.</p>
@@ -292,9 +292,9 @@ export const posts: Post[] = [
       "A complete guide to Korean consonant-only abbreviations (초성 줄임말). Understand how ㅋㅋ, ㄹㅇ, ㅇㅇ, ㅠㅠ and 20+ more Korean abbreviations work and when to use them.",
     publishedAt: "2026-03-18",
     category: "Social Media",
-    heroImage: "smartphone-social-media",
-    heroImageAlt: "Close up of a smartphone screen showing social media app icons — the home of Korean abbreviations",
-    ogImage: "smartphone-social-media",
+    heroImage: "/images/blog/abbreviations.jpg",
+    heroImageAlt: "Korean Abbreviations 초성 Guide — ㅋㅋ ㄹㅇ ㅇㅇ Explained",
+    ogImage: "/images/blog/abbreviations.jpg",
     relatedSlugs: ["kk", "hh", "oo", "real", "ok", "gs", "dd", "nn"],
     content: `
 <p>If you've ever received a Korean text that looked like a string of consonants with no vowels — something like <strong>ㅋㅋ ㄹㅇ ㅇㅇ</strong> — you weren't reading corrupted text. You were reading a fully formed message in Korean abbreviation style, and once you understand the system, it all makes perfect sense.</p>
