@@ -91,8 +91,7 @@ const ogImageURL = ogImage ?? `${siteBase}favicon.svg`;
     <header class="header">
       <div class="header-inner">
         <a href="/" class="logo">
-          <span class="logo-icon">한</span>
-          <span class="logo-text">KoreanSlang<span class="logo-dot">.guide</span></span>
+          <img src="/logo.svg" alt="KoreanSlang.guide" class="logo-img" height="32" />
         </a>
         <nav class="nav">
           <a href="/#categories">Categories</a>
@@ -135,26 +134,12 @@ const ogImageURL = ogImage ?? `${siteBase}favicon.svg`;
       .logo {
         display: flex;
         align-items: center;
-        gap: 0.625rem;
       }
-      .logo-icon {
-        font-family: var(--font-korean);
-        font-weight: 900;
-        font-size: 1.25rem;
-        background: var(--color-accent);
-        color: white;
-        width: 2rem;
-        height: 2rem;
-        border-radius: 8px;
-        display: grid;
-        place-items: center;
+      .logo-img {
+        height: 32px;
+        width: auto;
+        display: block;
       }
-      .logo-text {
-        font-weight: 700;
-        font-size: 1.05rem;
-        letter-spacing: -0.02em;
-      }
-      .logo-dot { color: var(--color-accent); }
       .nav {
         display: flex;
         align-items: center;
@@ -187,7 +172,6 @@ const ogImageURL = ogImage ?? `${siteBase}favicon.svg`;
 
       @media (max-width: 640px) {
         .nav a:not(.nav-submit) { display: none; }
-        .logo-text { font-size: 0.9rem; }
       }
     </style>
   </body>
